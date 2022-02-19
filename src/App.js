@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// import CakeContainer from "./components/CakeContainer";
+import { Provider } from "react-redux";
+import store from "./redux/Store";
+import CakeHooksContainer from "./components/CakeHooksContainer";
+import IceCreamHookContainer from "./components/IceCreamHookContainer";
+import ChocoHookContainer from "./components/ChocoHookContainer";
+import UserContainer from "./components/UserContainer";
 
+/*BASIC WAY OF FLOW : Action Creators -> Reducers -> Store -> Connect*/
+//With new version of React-Redux, we use Hooks instead of connect
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        {/* <CakeContainer /> */}
+        <CakeHooksContainer />
+        <IceCreamHookContainer />
+        <ChocoHookContainer />
+        <UserContainer />
+      </div>
+    </Provider>
   );
 }
 
